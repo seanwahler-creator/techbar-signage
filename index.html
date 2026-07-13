@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechBar Signage</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+}
+</style>
+</head>
+
+<body>
+
+<img id="slide" src="TechBarDaily.PNG">
+
+<script>
+
+const slides = [
+    "TechBarDaily.PNG",
+    "WalkupClosediPad ON.PNG",
+    "TeamMeeting.PNG",
+    "TempClosed.PNG",
+    "TechBarLobby.PNG"
+];
+
+let current = 0;
+
+setInterval(() => {
+    current = (current + 1) % slides.length;
+    document.getElementById("slide").src = slides[current];
+}, 10000);
+
+</script>
+
+</body>
+</html>
