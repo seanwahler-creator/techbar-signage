@@ -11,30 +11,53 @@ html, body {
   overflow: hidden;
   background: black;
 }
-img {
+
+#sign {
   width: 100vw;
   height: 100vh;
   object-fit: fill;
+}
+
+#menu {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: rgba(0,0,0,0.65);
+  color: white;
+}
+
+button:hover {
+  background: rgba(0,0,0,0.9);
 }
 </style>
 </head>
 <body>
 
-<img id="sign">
+<img id="sign" src="TechBarDaily.PNG">
+
+<div id="menu">
+  <button onclick="showSign('TechBarDaily.PNG')">Daily</button>
+  <button onclick="showSign('TechBarLobby.PNG')">Lobby</button>
+  <button onclick="showSign('TeamMeeting.PNG')">Meeting</button>
+  <button onclick="showSign('TempClosed.PNG')">Temp Closed</button>
+  <button onclick="showSign('WalkupClosediPad ON.PNG')">Walk-up Closed</button>
+</div>
 
 <script>
-const signs = {
-  daily: "TechBarDaily.PNG",
-  lobby: "TechBarLobby.PNG",
-  meeting: "TeamMeeting.PNG",
-  tempclosed: "TempClosed.PNG",
-  walkupclosed: "WalkupClosediPad ON.PNG"
-};
-
-const params = new URLSearchParams(window.location.search);
-const selected = params.get("sign") || "daily";
-
-document.getElementById("sign").src = signs[selected] || signs.daily;
+function showSign(fileName) {
+  document.getElementById("sign").src = fileName;
+}
 </script>
 
 </body>
